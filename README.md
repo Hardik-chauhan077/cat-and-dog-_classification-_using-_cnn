@@ -1,152 +1,83 @@
-🐶🐱 Dog vs Cat Image Classification using CNN with GUI
-This project is a complete Deep Learning application that uses a Convolutional Neural Network (CNN) to classify images of dogs and cats. The model is trained using the popular Kaggle dataset "Dogs vs Cats", and a Tkinter-based Python GUI is built to allow real-time predictions on user-uploaded images.
+# 🐶🐱 Dog vs Cat Image Classification using CNN with GUI
 
-📂 Repository Structure
-graphql
-Copy
-Edit
+This is a Deep Learning project that classifies images of **cats** and **dogs** using a **Convolutional Neural Network (CNN)** built with **TensorFlow/Keras**.  
+It includes:
+- A training notebook to build and save the model.
+- A GUI application using **Tkinter** to perform real-time classification on any image.
+
+---
+
+## 📂 Project Structure
+
 .
-├── catvsdog.h5             # Trained Keras CNN model
-├── gui_app.py              # Tkinter GUI script for prediction
-├── train_model.ipynb       # Colab-compatible training code
-├── README.md               # Project documentation (this file)
-└── dataset/                # Folder for dataset if used locally
-📌 Project Highlights
-CNN-based image classification using TensorFlow/Keras
+├── catvsdog.h5 # Trained Keras CNN model
+├── gui_app.py # GUI application script
+├── train_model.ipynb # Training code (Colab compatible)
+├── dataset/ # Dataset folder (optional for local use)
+└── README.md # Project documentation
 
-Real-time predictions with a GUI
 
-Dataset preprocessing, normalization, and augmentation
+---
 
-Training accuracy/loss visualizations
+## 🚀 Features
 
-Model evaluation and testing
+- ✅ CNN-based binary classification (Cat or Dog)
+- 🖼️ Upload and classify any image via GUI
+- 📊 Training and validation accuracy/loss visualization
+- 📁 Dataset loaded from Kaggle using `opendatasets`
+- 💾 Model saved in `.h5` format for reuse
 
-User can classify multiple images at once
+## 📊 Model Details
 
-📊 Dataset
-Source: Kaggle - Dogs vs Cats by Salader
+- Input Size: 128x128 RGB images
+- Layers: Conv2D, MaxPooling, Flatten, Dense
+- Activation: ReLU and Sigmoid
+- Loss Function: Binary Crossentropy
+- Optimizer: Adam
+- Accuracy: Achieved over 90% accuracy on validation data
 
-Contains:
 
-/train folder with labeled images (cat.x.jpg, dog.x.jpg)
+---
 
-/test folder for validation images
+## 📊 Dataset
 
-🧠 Model Architecture
-Input size: 256x256 RGB images
+- **Source**: [Kaggle – Dogs vs Cats](https://www.kaggle.com/datasets/salader/dogs-vs-cats)
 
-3 Convolutional Layers with ReLU activation and MaxPooling
+---
+## 🖼️ GUI Demo
 
-Fully Connected Dense Layers
+- You can load your own image and the GUI will predict whether it's a cat or a dog using the trained model.
+- --
 
-Dropout for regularization
+## 🚀 How to Run
 
-Final Layer: 1 neuron with Sigmoid activation
+- 1 Clone the repository:
+  
+git clone https://github.com/<your-username>/cat-dog-classification.git
 
-Loss: Binary Crossentropy
+- 2 Install required libraries:
 
-Optimizer: Adam
+  pip install tensorflow pillow numpy keras matplotlib
 
-python
-Copy
-Edit
-model.add(Conv2D(32, (3,3), activation='relu'))
-model.add(MaxPooling2D((2,2)))
-model.add(Flatten())
-model.add(Dense(128, activation='relu'))
-model.add(Dropout(0.1))
-model.add(Dense(64, activation='relu'))
-model.add(Dense(1, activation='sigmoid'))
-📈 Training Performance
-Training Epochs: 3 (can be increased for better accuracy)
+- 3 Run the GUI:
 
-Validation and training accuracy plotted
-
-Achieved accuracy above 90% on validation data
-
-🖥️ GUI Application (Tkinter)
-Built with Python’s tkinter, PIL, and numpy
-
-Lets the user upload any image and get predictions:
-
-"It's a Dog" or "It's a Cat"
-
-Uses the trained catvsdog.h5 model
-
-Simple and lightweight desktop interface
-
-🖼️ GUI Screenshot (sample layout):
-
-🚀 How to Run the Project
-🔹 Option 1: Google Colab (Training)
-Open train_model.ipynb in Google Colab
-
-Install dependencies:
-
-python
-Copy
-Edit
-!pip install opendatasets
-Download dataset:
-
-python
-Copy
-Edit
-import opendatasets as od
-od.download("https://www.kaggle.com/datasets/salader/dogs-vs-cats")
-Train the model (code provided in notebook)
-
-Save the model:
-
-python
-Copy
-Edit
-model.save("catvsdog.h5")
-🔹 Option 2: Local System (GUI)
-Clone the repo:
-
-bash
-Copy
-Edit
-git clone https://github.com/your-username/cat-dog-classifier.git
-cd cat-dog-classifier
-Install dependencies:
-
-bash
-Copy
-Edit
-pip install tensorflow pillow numpy keras matplotlib
-Run the GUI:
-
-bash
-Copy
-Edit
 python gui_app.py
-Click "Upload Image" → Select an image → Click "Classify Image"
-You’ll see the predicted class displayed below the image.
 
-📦 Requirements
+
+## 📌 Requirements
+
 Python 3.7+
 
-TensorFlow
-
-Keras
+TensorFlow / Keras
 
 Pillow
 
 NumPy
 
-Matplotlib
+Matplotlib (for visualization)
 
-Tkinter (pre-installed with Python on most systems)
+Tkinter (for GUI)
 
-📍 Future Improvements
-Use Data Augmentation for better generalization
 
-Add multi-class support or confidence score
 
-Enhance GUI (drag & drop, batch prediction, webcam support)
-
-Deploy as a web app using Flask or Streamlit
-
+  
